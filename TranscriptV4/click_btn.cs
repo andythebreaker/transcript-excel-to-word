@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DocumentFormat.OpenXml.Packaging;
@@ -256,10 +257,13 @@ namespace TranscriptV4
             }
         }
 
-        public static string GetCellValue(SpreadsheetDocument document, Cell cell)
+        public static string GetCellValue(SpreadsheetDocument document, Cell cell, int maxDecPoint_in)
         {
             SharedStringTablePart stringTablePart = document.WorkbookPart.SharedStringTablePart;
             string value = cell.CellValue.InnerXml;
+            //浮點數讀取的問題出在這裡，value變數，不管了，暴力解
+
+            //Console.WriteLine("value:"+ value+ "\nif:"+ (cell.DataType != null && cell.DataType.Value == CellValues.SharedString).ToString()+"\nyes:"+ stringTablePart.SharedStringTable.ChildElements[Int32.Parse(value)].InnerText);
 
             if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
             {
@@ -267,7 +271,47 @@ namespace TranscriptV4
             }
             else
             {
-                return value;
+                //Console.WriteLine("error check:" + value);
+                // Console.WriteLine("error check:"+stringTablePart.SharedStringTable.ChildElements[Int32.Parse(value)].InnerText);
+
+                string floaterror = value;
+                bool gotcha = false;
+                int countOnMe = 0;
+                int thisIsCountOfIndex = 0;
+                Regex isnumber1 = new Regex(@"^[0-9]$");
+                foreach (var charItem in floaterror)
+                {
+                    if (isnumber1.IsMatch(charItem.ToString()) || charItem == '.')
+                    {
+                        //nomove
+                    }
+                    else
+                    {
+                        //it is not nubmer or 小數
+                        break;
+                    }
+                    if (gotcha)
+                    {
+                        if (countOnMe == maxDecPoint_in)
+                        {
+
+                            floaterror = floaterror.Remove(thisIsCountOfIndex + 1);
+                            floaterror=Math.Round(Decimal.Parse(floaterror), maxDecPoint_in).ToString();
+
+                            break;
+                        }
+                        countOnMe++;
+                    }
+                    else
+                    {
+                        if (charItem == '.')
+                        {
+                            gotcha = true;
+                        }
+                    }
+                    thisIsCountOfIndex++;
+                }
+                return floaterror;
             }
         }
         public void change_cell_text(TableCell cin, string stuff_to_change)
@@ -278,6 +322,7 @@ namespace TranscriptV4
             DocumentFormat.OpenXml.Wordprocessing.Run new_r = new DocumentFormat.OpenXml.Wordprocessing.Run();
             DocumentFormat.OpenXml.Wordprocessing.Text new_t = new DocumentFormat.OpenXml.Wordprocessing.Text();
             new_t.Text = stuff_to_change;
+            if (printAllData.Checked) { logit(stuff_to_change); }
             new_r.AppendChild(new_t);
             new_p.AppendChild(new_r);
 
@@ -323,10 +368,10 @@ namespace TranscriptV4
             try
             {
                 string tPath = pTemplatePath;
-                
+
                 if (File.Exists(tPath) == true)
                 {
-                    
+
                     using (WordprocessingDocument tWordDocument = WordprocessingDocument.Open(tPath, true))
                     {
                         Body tBody = tWordDocument.MainDocumentPart.Document.Body;
@@ -495,6 +540,6 @@ namespace TranscriptV4
             return tResultBool;
         }
 
-        
+
     }
 }

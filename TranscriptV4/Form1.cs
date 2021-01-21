@@ -1,5 +1,5 @@
 ﻿/*TODO:
- * 1.成績如果是浮點數，輸出檔案會炸，計算成績差會消失
+ * 1.成績如果是浮點數，輸出檔案會炸，計算成績差會消失(202101修好，待QA)
  * 2.成績不及格紅色
  * 3.成績 置中
  * 4.LOGO無法顯示(這是bug要修正)
@@ -7,6 +7,11 @@
  * 6.UI優化
  * 7.ischool下載檔案支援
  * */
+
+ /* 快捷操作
+  * 搜尋"功能索引"
+  * 快速找到功能的實作位址
+  */
 
 
 using DocumentFormat.OpenXml.Packaging;
@@ -38,6 +43,7 @@ namespace TranscriptV4
 
         private void go_Click(object sender, EventArgs e)
         {
+            pgb.Value = pgb.Minimum;
             int copy_esc_01_count = 0;
             int copy_esc_02_count = 0;
             int copy_esc_03_count = 0;
@@ -105,6 +111,9 @@ namespace TranscriptV4
                     Dictionary<string, string> tReplaceDic = new Dictionary<string, string>();
                     string new_lastnamme = excel_numb_name(i+Convert.ToInt32(off1.Text),virb_name.Text);
                     string new_numb = excel_numb_name(i + Convert.ToInt32(off1.Text), virb_numb.Text);
+                    /* 功能索引
+                     * 替換word中的學生姓名與座號
+                     */
                     tReplaceDic.Add("§§name§§", new_lastnamme);
                     tReplaceDic.Add("§§numb§§", new_numb);
 
@@ -164,15 +173,19 @@ namespace TranscriptV4
                                 string my_score = "";
                                 string compA = "";
                                 string compB = "";
-                                int compAi = 0;
-                                int compBi = 0;
-                                int Cdiff = 0;
+                                decimal compAi = 0;
+                                decimal compBi = 0;
+                                decimal Cdiff = 0;
                                 string diff_out = "";
                                 switch (eb_checker())
                                 {
                                     case 1:
                                         logit("流程1");
                                         my_head = get_head(copy_word_tmp, i);
+                                        /* code review
+                                         我猜head是指"第0個row"of excel
+                                         2021 andythebreaker 留
+                                         */
                                         my_score = excel_dt(sc1.Text.Trim(), bypass_stu + Convert.ToInt32(off1.Value), my_head);
                                         if (my_head == "姓名")
                                         {
@@ -251,15 +264,15 @@ namespace TranscriptV4
                                                 }
                                                 else
                                                 {
-
+                                                    //no move
                                                 }
                                                 Console.WriteLine("*****成績差:" + compA + compB);
                                                 if (DS.Items.Contains(my_head) == false)
                                                 {
-                                                    if (Int32.TryParse(compA, out compAi))
+                                                    if (decimal.TryParse(compA, out compAi)/*Int32.TryParse(compA, out compAi)*/)
                                                     {
                                                         Console.WriteLine("*******A比較過");
-                                                        if (Int32.TryParse(compB, out compBi))
+                                                        if (decimal.TryParse(compB, out compBi))
                                                         {
                                                             Console.WriteLine("*******B比較過");
                                                             Cdiff = compAi - compBi;
@@ -294,6 +307,14 @@ namespace TranscriptV4
                                                                 }
                                                             }
                                                         }
+                                                        else
+                                                        {
+                                                            MessageBox.Show("成績差比較錯誤，這是一個軟體內部錯誤，請聯絡軟體開發人員\nerror@float trans\npgv:V4.2021.01.20 up");
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("成績差比較錯誤，這是一個軟體內部錯誤，請聯絡軟體開發人員\nerror@float trans\npgv:V4.2021.01.20 up");
                                                     }
                                                 }
                                                 change_cell_text(cell, diff_out);
@@ -387,10 +408,10 @@ namespace TranscriptV4
                                                 }
                                                 if (DS.Items.Contains(my_head) == false)
                                                 {
-                                                    if (Int32.TryParse(compA, out compAi))
+                                                    if (decimal.TryParse(compA, out compAi))
                                                     {
                                                         Console.WriteLine("*******A比較過");
-                                                        if (Int32.TryParse(compB, out compBi))
+                                                        if (decimal.TryParse(compB, out compBi))
                                                         {
                                                             Console.WriteLine("*******B比較過");
                                                             Cdiff = compAi - compBi;
@@ -530,10 +551,10 @@ namespace TranscriptV4
                                                 }
                                                 if (DS.Items.Contains(my_head) == false)
                                                 {
-                                                    if (Int32.TryParse(compA, out compAi))
+                                                    if (decimal.TryParse(compA, out compAi))
                                                     {
                                                         Console.WriteLine("*******A比較過");
-                                                        if (Int32.TryParse(compB, out compBi))
+                                                        if (decimal.TryParse(compB, out compBi))
                                                         {
                                                             Console.WriteLine("*******B比較過");
                                                             Cdiff = compAi - compBi;
@@ -628,6 +649,8 @@ namespace TranscriptV4
                 }
 
             }
+            
+
             return stuff_to_return;
         }
         private string excel_dt(string excel_file_where, int stu, string head_to_find)
@@ -653,7 +676,7 @@ namespace TranscriptV4
                 {
                     for (int i = 0; i < row.Descendants<Cell>().Count(); i++)
                     {
-                        string my_word = GetCellValue(spreadSheetDocument, row.Descendants<Cell>().ElementAt(i));
+                        string my_word = GetCellValue(spreadSheetDocument, row.Descendants<Cell>().ElementAt(i),Int32.Parse(maxDecPoint.Value.ToString()));
                         if (stunum == stu && excel_gethead(copy_exc_tmp, i) == head_to_find)
                         {
                             stuff_to_return = my_word;
@@ -682,7 +705,7 @@ namespace TranscriptV4
                 {
                     if (i_tmp == iin)
                     {
-                        stuff_to_return = GetCellValue(spreadSheetDocument, cell);
+                        stuff_to_return = GetCellValue(spreadSheetDocument, cell,Int32.Parse(maxDecPoint.Value.ToString()));
                     }
                     i_tmp++;
                 }
@@ -784,7 +807,7 @@ namespace TranscriptV4
                 {
                     for (int i = 0; i < row.Descendants<Cell>().Count(); i++)
                     {
-                        string my_word = GetCellValue(spreadSheetDocument, row.Descendants<Cell>().ElementAt(i));
+                        string my_word = GetCellValue(spreadSheetDocument, row.Descendants<Cell>().ElementAt(i), Int32.Parse(maxDecPoint.Value.ToString()));
                         if (stunum == stu && excel_gethead(copy_exc_tmp, i) == head_to_find)
                         {
                             stuff_to_return = my_word;
@@ -796,6 +819,10 @@ namespace TranscriptV4
             return stuff_to_return;
         }
 
+        private void maxDecPoint_ValueChanged(object sender, EventArgs e)
+        {
+            //nomove
+        }
         
     }
 }
