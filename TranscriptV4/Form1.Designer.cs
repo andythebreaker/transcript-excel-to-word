@@ -94,6 +94,11 @@
             this.maxDecPoint = new System.Windows.Forms.NumericUpDown();
             this.textOnly = new System.Windows.Forms.Label();
             this.textOnly2 = new System.Windows.Forms.Label();
+            this.mainTabCtrl = new MetroFramework.Controls.MetroTabControl();
+            this.tabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.tabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.tabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
             ((System.ComponentModel.ISupportInitialize)(this.off1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.off2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.off3)).BeginInit();
@@ -101,6 +106,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.off0)).BeginInit();
             this.shapeflowLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxDecPoint)).BeginInit();
+            this.mainTabCtrl.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lsc1
@@ -149,7 +158,7 @@
             // 
             // word_in_bton
             // 
-            this.word_in_bton.Location = new System.Drawing.Point(17, 255);
+            this.word_in_bton.Location = new System.Drawing.Point(28, 252);
             this.word_in_bton.Margin = new System.Windows.Forms.Padding(4);
             this.word_in_bton.Name = "word_in_bton";
             this.word_in_bton.Size = new System.Drawing.Size(100, 29);
@@ -160,7 +169,7 @@
             // 
             // op_file_load
             // 
-            this.op_file_load.Location = new System.Drawing.Point(17, 292);
+            this.op_file_load.Location = new System.Drawing.Point(28, 289);
             this.op_file_load.Margin = new System.Windows.Forms.Padding(4);
             this.op_file_load.Name = "op_file_load";
             this.op_file_load.Size = new System.Drawing.Size(100, 29);
@@ -203,7 +212,7 @@
             // 
             // word_in_loc
             // 
-            this.word_in_loc.Location = new System.Drawing.Point(127, 255);
+            this.word_in_loc.Location = new System.Drawing.Point(138, 252);
             this.word_in_loc.Margin = new System.Windows.Forms.Padding(4);
             this.word_in_loc.Name = "word_in_loc";
             this.word_in_loc.Size = new System.Drawing.Size(289, 25);
@@ -211,7 +220,7 @@
             // 
             // op_loc
             // 
-            this.op_loc.Location = new System.Drawing.Point(127, 291);
+            this.op_loc.Location = new System.Drawing.Point(138, 288);
             this.op_loc.Margin = new System.Windows.Forms.Padding(4);
             this.op_loc.Name = "op_loc";
             this.op_loc.Size = new System.Drawing.Size(289, 25);
@@ -271,16 +280,16 @@
             // 
             // logs
             // 
-            this.logs.Location = new System.Drawing.Point(17, 459);
+            this.logs.Location = new System.Drawing.Point(22, 106);
             this.logs.Margin = new System.Windows.Forms.Padding(4);
             this.logs.Name = "logs";
-            this.logs.Size = new System.Drawing.Size(916, 184);
+            this.logs.Size = new System.Drawing.Size(873, 268);
             this.logs.TabIndex = 18;
             this.logs.Text = "";
             // 
             // go
             // 
-            this.go.Location = new System.Drawing.Point(17, 331);
+            this.go.Location = new System.Drawing.Point(961, 503);
             this.go.Margin = new System.Windows.Forms.Padding(4);
             this.go.Name = "go";
             this.go.Size = new System.Drawing.Size(100, 66);
@@ -462,7 +471,7 @@
             // 
             // off0
             // 
-            this.off0.Location = new System.Drawing.Point(425, 256);
+            this.off0.Location = new System.Drawing.Point(436, 253);
             this.off0.Margin = new System.Windows.Forms.Padding(4);
             this.off0.Name = "off0";
             this.off0.Size = new System.Drawing.Size(160, 25);
@@ -477,7 +486,7 @@
             // 
             this.fan.FormattingEnabled = true;
             this.fan.ItemHeight = 15;
-            this.fan.Location = new System.Drawing.Point(633, 211);
+            this.fan.Location = new System.Drawing.Point(38, 17);
             this.fan.Margin = new System.Windows.Forms.Padding(4);
             this.fan.Name = "fan";
             this.fan.Size = new System.Drawing.Size(159, 109);
@@ -485,7 +494,7 @@
             // 
             // fanip
             // 
-            this.fanip.Location = new System.Drawing.Point(801, 211);
+            this.fanip.Location = new System.Drawing.Point(206, 17);
             this.fanip.Margin = new System.Windows.Forms.Padding(4);
             this.fanip.Name = "fanip";
             this.fanip.Size = new System.Drawing.Size(132, 25);
@@ -493,7 +502,7 @@
             // 
             // fanad
             // 
-            this.fanad.Location = new System.Drawing.Point(801, 246);
+            this.fanad.Location = new System.Drawing.Point(206, 52);
             this.fanad.Margin = new System.Windows.Forms.Padding(4);
             this.fanad.Name = "fanad";
             this.fanad.Size = new System.Drawing.Size(68, 29);
@@ -504,7 +513,7 @@
             // 
             // fanrm
             // 
-            this.fanrm.Location = new System.Drawing.Point(877, 246);
+            this.fanrm.Location = new System.Drawing.Point(282, 52);
             this.fanrm.Margin = new System.Windows.Forms.Padding(4);
             this.fanrm.Name = "fanrm";
             this.fanrm.Size = new System.Drawing.Size(61, 29);
@@ -515,7 +524,7 @@
             // 
             // impT
             // 
-            this.impT.Location = new System.Drawing.Point(463, 352);
+            this.impT.Location = new System.Drawing.Point(182, 334);
             this.impT.Margin = new System.Windows.Forms.Padding(4);
             this.impT.Name = "impT";
             this.impT.Size = new System.Drawing.Size(132, 25);
@@ -524,7 +533,7 @@
             // 
             // bmpT
             // 
-            this.bmpT.Location = new System.Drawing.Point(463, 390);
+            this.bmpT.Location = new System.Drawing.Point(182, 372);
             this.bmpT.Margin = new System.Windows.Forms.Padding(4);
             this.bmpT.Name = "bmpT";
             this.bmpT.Size = new System.Drawing.Size(132, 25);
@@ -533,7 +542,7 @@
             // 
             // nmpT
             // 
-            this.nmpT.Location = new System.Drawing.Point(463, 426);
+            this.nmpT.Location = new System.Drawing.Point(182, 408);
             this.nmpT.Margin = new System.Windows.Forms.Padding(4);
             this.nmpT.Name = "nmpT";
             this.nmpT.Size = new System.Drawing.Size(132, 25);
@@ -542,7 +551,7 @@
             // 
             // DSr
             // 
-            this.DSr.Location = new System.Drawing.Point(877, 378);
+            this.DSr.Location = new System.Drawing.Point(282, 184);
             this.DSr.Margin = new System.Windows.Forms.Padding(4);
             this.DSr.Name = "DSr";
             this.DSr.Size = new System.Drawing.Size(61, 29);
@@ -553,7 +562,7 @@
             // 
             // DSa
             // 
-            this.DSa.Location = new System.Drawing.Point(801, 378);
+            this.DSa.Location = new System.Drawing.Point(206, 184);
             this.DSa.Margin = new System.Windows.Forms.Padding(4);
             this.DSa.Name = "DSa";
             this.DSa.Size = new System.Drawing.Size(68, 29);
@@ -564,7 +573,7 @@
             // 
             // DSi
             // 
-            this.DSi.Location = new System.Drawing.Point(801, 342);
+            this.DSi.Location = new System.Drawing.Point(206, 148);
             this.DSi.Margin = new System.Windows.Forms.Padding(4);
             this.DSi.Name = "DSi";
             this.DSi.Size = new System.Drawing.Size(132, 25);
@@ -574,7 +583,7 @@
             // 
             this.DS.FormattingEnabled = true;
             this.DS.ItemHeight = 15;
-            this.DS.Location = new System.Drawing.Point(633, 342);
+            this.DS.Location = new System.Drawing.Point(38, 148);
             this.DS.Margin = new System.Windows.Forms.Padding(4);
             this.DS.Name = "DS";
             this.DS.Size = new System.Drawing.Size(159, 109);
@@ -583,7 +592,7 @@
             // nomove1
             // 
             this.nomove1.AutoSize = true;
-            this.nomove1.Location = new System.Drawing.Point(803, 305);
+            this.nomove1.Location = new System.Drawing.Point(208, 111);
             this.nomove1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove1.Name = "nomove1";
             this.nomove1.Size = new System.Drawing.Size(67, 15);
@@ -593,7 +602,7 @@
             // nomove2
             // 
             this.nomove2.AutoSize = true;
-            this.nomove2.Location = new System.Drawing.Point(803, 425);
+            this.nomove2.Location = new System.Drawing.Point(208, 231);
             this.nomove2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove2.Name = "nomove2";
             this.nomove2.Size = new System.Drawing.Size(97, 15);
@@ -603,7 +612,7 @@
             // nomove3
             // 
             this.nomove3.AutoSize = true;
-            this.nomove3.Location = new System.Drawing.Point(460, 232);
+            this.nomove3.Location = new System.Drawing.Point(471, 229);
             this.nomove3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove3.Name = "nomove3";
             this.nomove3.Size = new System.Drawing.Size(39, 15);
@@ -613,7 +622,7 @@
             // nomove4
             // 
             this.nomove4.AutoSize = true;
-            this.nomove4.Location = new System.Drawing.Point(388, 331);
+            this.nomove4.Location = new System.Drawing.Point(107, 313);
             this.nomove4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove4.Name = "nomove4";
             this.nomove4.Size = new System.Drawing.Size(209, 15);
@@ -623,7 +632,7 @@
             // nomove5
             // 
             this.nomove5.AutoSize = true;
-            this.nomove5.Location = new System.Drawing.Point(536, 9);
+            this.nomove5.Location = new System.Drawing.Point(547, 6);
             this.nomove5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove5.Name = "nomove5";
             this.nomove5.Size = new System.Drawing.Size(39, 15);
@@ -633,7 +642,7 @@
             // nomove6
             // 
             this.nomove6.AutoSize = true;
-            this.nomove6.Location = new System.Drawing.Point(717, 9);
+            this.nomove6.Location = new System.Drawing.Point(728, 6);
             this.nomove6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove6.Name = "nomove6";
             this.nomove6.Size = new System.Drawing.Size(67, 15);
@@ -642,7 +651,7 @@
             // 
             // nomove991
             // 
-            this.nomove991.Location = new System.Drawing.Point(979, 290);
+            this.nomove991.Location = new System.Drawing.Point(388, 43);
             this.nomove991.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove991.Name = "nomove991";
             this.nomove991.Size = new System.Drawing.Size(75, 29);
@@ -675,7 +684,7 @@
             this.shapeflowLayout.Controls.Add(this.off4);
             this.shapeflowLayout.Controls.Add(this.btrp4);
             this.shapeflowLayout.Controls.Add(this.trp4);
-            this.shapeflowLayout.Location = new System.Drawing.Point(17, 28);
+            this.shapeflowLayout.Location = new System.Drawing.Point(28, 25);
             this.shapeflowLayout.Margin = new System.Windows.Forms.Padding(4);
             this.shapeflowLayout.Name = "shapeflowLayout";
             this.shapeflowLayout.Size = new System.Drawing.Size(852, 172);
@@ -684,7 +693,7 @@
             // nomove992
             // 
             this.nomove992.AutoSize = true;
-            this.nomove992.Location = new System.Drawing.Point(984, 365);
+            this.nomove992.Location = new System.Drawing.Point(393, 118);
             this.nomove992.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove992.Name = "nomove992";
             this.nomove992.Size = new System.Drawing.Size(63, 15);
@@ -693,15 +702,15 @@
             // 
             // pgb
             // 
-            this.pgb.Location = new System.Drawing.Point(21, 406);
+            this.pgb.Location = new System.Drawing.Point(12, 540);
             this.pgb.Margin = new System.Windows.Forms.Padding(4);
             this.pgb.Name = "pgb";
-            this.pgb.Size = new System.Drawing.Size(381, 29);
+            this.pgb.Size = new System.Drawing.Size(928, 29);
             this.pgb.TabIndex = 54;
             // 
             // virb_name
             // 
-            this.virb_name.Location = new System.Drawing.Point(981, 324);
+            this.virb_name.Location = new System.Drawing.Point(390, 77);
             this.virb_name.Margin = new System.Windows.Forms.Padding(4);
             this.virb_name.Name = "virb_name";
             this.virb_name.Size = new System.Drawing.Size(132, 25);
@@ -710,7 +719,7 @@
             // 
             // virb_numb
             // 
-            this.virb_numb.Location = new System.Drawing.Point(981, 389);
+            this.virb_numb.Location = new System.Drawing.Point(390, 142);
             this.virb_numb.Margin = new System.Windows.Forms.Padding(4);
             this.virb_numb.Name = "virb_numb";
             this.virb_numb.Size = new System.Drawing.Size(132, 25);
@@ -720,7 +729,7 @@
             // no_move00919
             // 
             this.no_move00919.AutoSize = true;
-            this.no_move00919.Location = new System.Drawing.Point(908, 31);
+            this.no_move00919.Location = new System.Drawing.Point(19, 21);
             this.no_move00919.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.no_move00919.Name = "no_move00919";
             this.no_move00919.Size = new System.Drawing.Size(341, 15);
@@ -731,7 +740,7 @@
             // printAllData
             // 
             this.printAllData.AutoSize = true;
-            this.printAllData.Location = new System.Drawing.Point(911, 50);
+            this.printAllData.Location = new System.Drawing.Point(22, 40);
             this.printAllData.Name = "printAllData";
             this.printAllData.Size = new System.Drawing.Size(369, 19);
             this.printAllData.TabIndex = 58;
@@ -740,7 +749,7 @@
             // 
             // maxDecPoint
             // 
-            this.maxDecPoint.Location = new System.Drawing.Point(1056, 70);
+            this.maxDecPoint.Location = new System.Drawing.Point(167, 60);
             this.maxDecPoint.Maximum = new decimal(new int[] {
             10,
             0,
@@ -759,7 +768,7 @@
             // textOnly
             // 
             this.textOnly.AutoSize = true;
-            this.textOnly.Location = new System.Drawing.Point(908, 76);
+            this.textOnly.Location = new System.Drawing.Point(19, 66);
             this.textOnly.Name = "textOnly";
             this.textOnly.Size = new System.Drawing.Size(142, 15);
             this.textOnly.TabIndex = 60;
@@ -768,52 +777,138 @@
             // textOnly2
             // 
             this.textOnly2.AutoSize = true;
-            this.textOnly2.Location = new System.Drawing.Point(1182, 76);
+            this.textOnly2.Location = new System.Drawing.Point(293, 66);
             this.textOnly2.Name = "textOnly2";
             this.textOnly2.Size = new System.Drawing.Size(22, 15);
             this.textOnly2.TabIndex = 61;
             this.textOnly2.Text = "位";
             // 
+            // mainTabCtrl
+            // 
+            this.mainTabCtrl.Controls.Add(this.tabPage1);
+            this.mainTabCtrl.Controls.Add(this.tabPage2);
+            this.mainTabCtrl.Controls.Add(this.tabPage3);
+            this.mainTabCtrl.CustomBackground = false;
+            this.mainTabCtrl.FontSize = MetroFramework.MetroTabControlSize.Medium;
+            this.mainTabCtrl.FontWeight = MetroFramework.MetroTabControlWeight.Light;
+            this.mainTabCtrl.Location = new System.Drawing.Point(12, 12);
+            this.mainTabCtrl.Name = "mainTabCtrl";
+            this.mainTabCtrl.SelectedIndex = 2;
+            this.mainTabCtrl.Size = new System.Drawing.Size(932, 502);
+            this.mainTabCtrl.Style = MetroFramework.MetroColorStyle.Orange;
+            this.mainTabCtrl.StyleManager = this.metroStyleManager1;
+            this.mainTabCtrl.TabIndex = 62;
+            this.mainTabCtrl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mainTabCtrl.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.mainTabCtrl.UseStyleColors = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.shapeflowLayout);
+            this.tabPage1.Controls.Add(this.nomove6);
+            this.tabPage1.Controls.Add(this.word_in_bton);
+            this.tabPage1.Controls.Add(this.nomove5);
+            this.tabPage1.Controls.Add(this.op_file_load);
+            this.tabPage1.Controls.Add(this.nomove3);
+            this.tabPage1.Controls.Add(this.word_in_loc);
+            this.tabPage1.Controls.Add(this.off0);
+            this.tabPage1.Controls.Add(this.op_loc);
+            this.tabPage1.CustomBackground = false;
+            this.tabPage1.HorizontalScrollbar = false;
+            this.tabPage1.HorizontalScrollbarBarColor = true;
+            this.tabPage1.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabPage1.HorizontalScrollbarSize = 10;
+            this.tabPage1.Location = new System.Drawing.Point(4, 40);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(924, 458);
+            this.tabPage1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.tabPage1.StyleManager = this.metroStyleManager1;
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "檔案位址";
+            this.tabPage1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tabPage1.VerticalScrollbar = false;
+            this.tabPage1.VerticalScrollbarBarColor = true;
+            this.tabPage1.VerticalScrollbarHighlightOnWheel = false;
+            this.tabPage1.VerticalScrollbarSize = 10;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.virb_numb);
+            this.tabPage2.Controls.Add(this.virb_name);
+            this.tabPage2.Controls.Add(this.fan);
+            this.tabPage2.Controls.Add(this.nomove4);
+            this.tabPage2.Controls.Add(this.nomove992);
+            this.tabPage2.Controls.Add(this.fanip);
+            this.tabPage2.Controls.Add(this.nmpT);
+            this.tabPage2.Controls.Add(this.fanad);
+            this.tabPage2.Controls.Add(this.bmpT);
+            this.tabPage2.Controls.Add(this.impT);
+            this.tabPage2.Controls.Add(this.nomove991);
+            this.tabPage2.Controls.Add(this.fanrm);
+            this.tabPage2.Controls.Add(this.DS);
+            this.tabPage2.Controls.Add(this.DSi);
+            this.tabPage2.Controls.Add(this.DSa);
+            this.tabPage2.Controls.Add(this.DSr);
+            this.tabPage2.Controls.Add(this.nomove1);
+            this.tabPage2.Controls.Add(this.nomove2);
+            this.tabPage2.CustomBackground = false;
+            this.tabPage2.HorizontalScrollbar = false;
+            this.tabPage2.HorizontalScrollbarBarColor = true;
+            this.tabPage2.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabPage2.HorizontalScrollbarSize = 10;
+            this.tabPage2.Location = new System.Drawing.Point(4, 40);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(924, 458);
+            this.tabPage2.Style = MetroFramework.MetroColorStyle.Orange;
+            this.tabPage2.StyleManager = this.metroStyleManager1;
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "數據與文字設定";
+            this.tabPage2.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tabPage2.VerticalScrollbar = false;
+            this.tabPage2.VerticalScrollbarBarColor = true;
+            this.tabPage2.VerticalScrollbarHighlightOnWheel = false;
+            this.tabPage2.VerticalScrollbarSize = 10;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.textOnly2);
+            this.tabPage3.Controls.Add(this.textOnly);
+            this.tabPage3.Controls.Add(this.maxDecPoint);
+            this.tabPage3.Controls.Add(this.no_move00919);
+            this.tabPage3.Controls.Add(this.printAllData);
+            this.tabPage3.Controls.Add(this.logs);
+            this.tabPage3.CustomBackground = false;
+            this.tabPage3.HorizontalScrollbar = false;
+            this.tabPage3.HorizontalScrollbarBarColor = true;
+            this.tabPage3.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabPage3.HorizontalScrollbarSize = 10;
+            this.tabPage3.Location = new System.Drawing.Point(4, 40);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(924, 458);
+            this.tabPage3.Style = MetroFramework.MetroColorStyle.Orange;
+            this.tabPage3.StyleManager = this.metroStyleManager1;
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "進階功能";
+            this.tabPage3.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tabPage3.VerticalScrollbar = false;
+            this.tabPage3.VerticalScrollbarBarColor = true;
+            this.tabPage3.VerticalScrollbarHighlightOnWheel = false;
+            this.tabPage3.VerticalScrollbarSize = 10;
+            // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.OwnerForm = this;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
             // Transcript_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1311, 679);
-            this.Controls.Add(this.textOnly2);
-            this.Controls.Add(this.textOnly);
-            this.Controls.Add(this.maxDecPoint);
-            this.Controls.Add(this.printAllData);
-            this.Controls.Add(this.virb_numb);
-            this.Controls.Add(this.virb_name);
+            this.ClientSize = new System.Drawing.Size(1228, 582);
+            this.Controls.Add(this.mainTabCtrl);
             this.Controls.Add(this.pgb);
-            this.Controls.Add(this.nomove992);
-            this.Controls.Add(this.shapeflowLayout);
-            this.Controls.Add(this.nomove991);
-            this.Controls.Add(this.nomove6);
-            this.Controls.Add(this.nomove5);
-            this.Controls.Add(this.nomove4);
-            this.Controls.Add(this.nomove3);
-            this.Controls.Add(this.nomove2);
-            this.Controls.Add(this.nomove1);
-            this.Controls.Add(this.DSr);
-            this.Controls.Add(this.DSa);
-            this.Controls.Add(this.DSi);
-            this.Controls.Add(this.DS);
-            this.Controls.Add(this.nmpT);
-            this.Controls.Add(this.bmpT);
-            this.Controls.Add(this.impT);
-            this.Controls.Add(this.fanrm);
-            this.Controls.Add(this.fanad);
-            this.Controls.Add(this.fanip);
-            this.Controls.Add(this.fan);
-            this.Controls.Add(this.off0);
-            this.Controls.Add(this.no_move00919);
             this.Controls.Add(this.go);
-            this.Controls.Add(this.logs);
-            this.Controls.Add(this.op_loc);
-            this.Controls.Add(this.word_in_loc);
-            this.Controls.Add(this.op_file_load);
-            this.Controls.Add(this.word_in_bton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Transcript_main";
@@ -827,8 +922,14 @@
             this.shapeflowLayout.ResumeLayout(false);
             this.shapeflowLayout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxDecPoint)).EndInit();
+            this.mainTabCtrl.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -899,6 +1000,11 @@
         private System.Windows.Forms.NumericUpDown maxDecPoint;
         private System.Windows.Forms.Label textOnly;
         private System.Windows.Forms.Label textOnly2;
+        private MetroFramework.Controls.MetroTabControl mainTabCtrl;
+        private MetroFramework.Controls.MetroTabPage tabPage1;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private MetroFramework.Controls.MetroTabPage tabPage2;
+        private MetroFramework.Controls.MetroTabPage tabPage3;
     }
 }
 
