@@ -96,9 +96,29 @@
             this.textOnly2 = new System.Windows.Forms.Label();
             this.mainTabCtrl = new MetroFramework.Controls.MetroTabControl();
             this.tabPage1 = new MetroFramework.Controls.MetroTabPage();
-            this.tabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.tabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
+            this.tabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.chooseFonts = new MetroFramework.Controls.MetroComboBox();
+            this.blodAll = new MetroFramework.Controls.MetroCheckBox();
+            this.group_data_color = new System.Windows.Forms.GroupBox();
+            this.MjustText2 = new MetroFramework.Controls.MetroLabel();
+            this.fsBar = new MetroFramework.Controls.MetroTrackBar();
+            this.failUpDown = new MetroFramework.Controls.MetroToggle();
+            this.MjustText4 = new MetroFramework.Controls.MetroLabel();
+            this.ifColor = new MetroFramework.Controls.MetroToggle();
+            this.MjustText3 = new MetroFramework.Controls.MetroLabel();
+            this.highlightColorPicker = new MetroFramework.Controls.MetroComboBox();
+            this.bigSmallText = new MetroFramework.Controls.MetroLabel();
+            this.McolorButton = new MetroFramework.Controls.MetroButton();
+            this.failScore = new MetroFramework.Controls.MetroLabel();
+            this.COLORing = new System.Windows.Forms.Label();
+            this.MjustText1 = new MetroFramework.Controls.MetroLabel();
+            this.ifciB = new MetroFramework.Controls.MetroRadioButton();
+            this.ifFailColorImp = new MetroFramework.Controls.MetroRadioButton();
+            this.ifciI = new MetroFramework.Controls.MetroRadioButton();
+            this.tabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.colorDialogText = new System.Windows.Forms.ColorDialog();
+            this.JustificationValuesEnum = new MetroFramework.Controls.MetroComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.off1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.off2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.off3)).BeginInit();
@@ -109,6 +129,7 @@
             this.mainTabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.group_data_color.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -289,7 +310,7 @@
             // 
             // go
             // 
-            this.go.Location = new System.Drawing.Point(961, 503);
+            this.go.Location = new System.Drawing.Point(1016, 514);
             this.go.Margin = new System.Windows.Forms.Padding(4);
             this.go.Name = "go";
             this.go.Size = new System.Drawing.Size(100, 66);
@@ -702,10 +723,10 @@
             // 
             // pgb
             // 
-            this.pgb.Location = new System.Drawing.Point(12, 540);
+            this.pgb.Location = new System.Drawing.Point(12, 551);
             this.pgb.Margin = new System.Windows.Forms.Padding(4);
             this.pgb.Name = "pgb";
-            this.pgb.Size = new System.Drawing.Size(928, 29);
+            this.pgb.Size = new System.Drawing.Size(977, 29);
             this.pgb.TabIndex = 54;
             // 
             // virb_name
@@ -793,8 +814,8 @@
             this.mainTabCtrl.FontWeight = MetroFramework.MetroTabControlWeight.Light;
             this.mainTabCtrl.Location = new System.Drawing.Point(12, 12);
             this.mainTabCtrl.Name = "mainTabCtrl";
-            this.mainTabCtrl.SelectedIndex = 2;
-            this.mainTabCtrl.Size = new System.Drawing.Size(932, 502);
+            this.mainTabCtrl.SelectedIndex = 1;
+            this.mainTabCtrl.Size = new System.Drawing.Size(977, 521);
             this.mainTabCtrl.Style = MetroFramework.MetroColorStyle.Orange;
             this.mainTabCtrl.StyleManager = this.metroStyleManager1;
             this.mainTabCtrl.TabIndex = 62;
@@ -820,7 +841,7 @@
             this.tabPage1.HorizontalScrollbarSize = 10;
             this.tabPage1.Location = new System.Drawing.Point(4, 40);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(924, 458);
+            this.tabPage1.Size = new System.Drawing.Size(969, 477);
             this.tabPage1.Style = MetroFramework.MetroColorStyle.Orange;
             this.tabPage1.StyleManager = this.metroStyleManager1;
             this.tabPage1.TabIndex = 0;
@@ -831,8 +852,18 @@
             this.tabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.tabPage1.VerticalScrollbarSize = 10;
             // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.OwnerForm = this;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.JustificationValuesEnum);
+            this.tabPage2.Controls.Add(this.chooseFonts);
+            this.tabPage2.Controls.Add(this.blodAll);
+            this.tabPage2.Controls.Add(this.group_data_color);
             this.tabPage2.Controls.Add(this.virb_numb);
             this.tabPage2.Controls.Add(this.virb_name);
             this.tabPage2.Controls.Add(this.fan);
@@ -858,7 +889,7 @@
             this.tabPage2.HorizontalScrollbarSize = 10;
             this.tabPage2.Location = new System.Drawing.Point(4, 40);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(924, 458);
+            this.tabPage2.Size = new System.Drawing.Size(969, 477);
             this.tabPage2.Style = MetroFramework.MetroColorStyle.Orange;
             this.tabPage2.StyleManager = this.metroStyleManager1;
             this.tabPage2.TabIndex = 1;
@@ -868,6 +899,322 @@
             this.tabPage2.VerticalScrollbarBarColor = true;
             this.tabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.tabPage2.VerticalScrollbarSize = 10;
+            // 
+            // chooseFonts
+            // 
+            this.chooseFonts.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.chooseFonts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.chooseFonts.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.chooseFonts.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.chooseFonts.FormattingEnabled = true;
+            this.chooseFonts.ItemHeight = 24;
+            this.chooseFonts.Location = new System.Drawing.Point(598, 111);
+            this.chooseFonts.Name = "chooseFonts";
+            this.chooseFonts.Size = new System.Drawing.Size(307, 30);
+            this.chooseFonts.Style = MetroFramework.MetroColorStyle.Orange;
+            this.chooseFonts.StyleManager = this.metroStyleManager1;
+            this.chooseFonts.TabIndex = 75;
+            this.chooseFonts.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // blodAll
+            // 
+            this.blodAll.AutoSize = true;
+            this.blodAll.CustomBackground = false;
+            this.blodAll.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.blodAll.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.blodAll.Location = new System.Drawing.Point(598, 64);
+            this.blodAll.Name = "blodAll";
+            this.blodAll.Size = new System.Drawing.Size(56, 17);
+            this.blodAll.Style = MetroFramework.MetroColorStyle.Orange;
+            this.blodAll.StyleManager = this.metroStyleManager1;
+            this.blodAll.TabIndex = 73;
+            this.blodAll.Text = "粗體";
+            this.blodAll.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.blodAll.UseStyleColors = false;
+            this.blodAll.UseVisualStyleBackColor = true;
+            // 
+            // group_data_color
+            // 
+            this.group_data_color.BackColor = System.Drawing.Color.White;
+            this.group_data_color.Controls.Add(this.MjustText2);
+            this.group_data_color.Controls.Add(this.fsBar);
+            this.group_data_color.Controls.Add(this.failUpDown);
+            this.group_data_color.Controls.Add(this.MjustText4);
+            this.group_data_color.Controls.Add(this.ifColor);
+            this.group_data_color.Controls.Add(this.MjustText3);
+            this.group_data_color.Controls.Add(this.highlightColorPicker);
+            this.group_data_color.Controls.Add(this.bigSmallText);
+            this.group_data_color.Controls.Add(this.McolorButton);
+            this.group_data_color.Controls.Add(this.failScore);
+            this.group_data_color.Controls.Add(this.COLORing);
+            this.group_data_color.Controls.Add(this.MjustText1);
+            this.group_data_color.Controls.Add(this.ifciB);
+            this.group_data_color.Controls.Add(this.ifFailColorImp);
+            this.group_data_color.Controls.Add(this.ifciI);
+            this.group_data_color.Location = new System.Drawing.Point(362, 206);
+            this.group_data_color.Name = "group_data_color";
+            this.group_data_color.Size = new System.Drawing.Size(585, 249);
+            this.group_data_color.TabIndex = 73;
+            this.group_data_color.TabStop = false;
+            this.group_data_color.Text = "顏色控制";
+            // 
+            // MjustText2
+            // 
+            this.MjustText2.AutoSize = true;
+            this.MjustText2.CustomBackground = false;
+            this.MjustText2.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.MjustText2.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.MjustText2.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.MjustText2.Location = new System.Drawing.Point(102, 36);
+            this.MjustText2.Name = "MjustText2";
+            this.MjustText2.Size = new System.Drawing.Size(73, 20);
+            this.MjustText2.Style = MetroFramework.MetroColorStyle.Orange;
+            this.MjustText2.StyleManager = this.metroStyleManager1;
+            this.MjustText2.TabIndex = 68;
+            this.MjustText2.Text = "及格分數";
+            this.MjustText2.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MjustText2.UseStyleColors = false;
+            // 
+            // fsBar
+            // 
+            this.fsBar.BackColor = System.Drawing.Color.Transparent;
+            this.fsBar.CustomBackground = false;
+            this.fsBar.LargeChange = ((uint)(5u));
+            this.fsBar.Location = new System.Drawing.Point(102, 65);
+            this.fsBar.Maximum = 100;
+            this.fsBar.Minimum = 0;
+            this.fsBar.MouseWheelBarPartitions = 10;
+            this.fsBar.Name = "fsBar";
+            this.fsBar.Size = new System.Drawing.Size(417, 23);
+            this.fsBar.SmallChange = ((uint)(1u));
+            this.fsBar.Style = MetroFramework.MetroColorStyle.Orange;
+            this.fsBar.StyleManager = this.metroStyleManager1;
+            this.fsBar.TabIndex = 57;
+            this.fsBar.Text = "metroTrackBar1";
+            this.fsBar.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.fsBar.Value = 60;
+            this.fsBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.fsBar_Scroll);
+            // 
+            // failUpDown
+            // 
+            this.failUpDown.AutoSize = true;
+            this.failUpDown.CustomBackground = false;
+            this.failUpDown.DisplayStatus = false;
+            this.failUpDown.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.failUpDown.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.failUpDown.Location = new System.Drawing.Point(177, 136);
+            this.failUpDown.Name = "failUpDown";
+            this.failUpDown.Size = new System.Drawing.Size(50, 19);
+            this.failUpDown.Style = MetroFramework.MetroColorStyle.Orange;
+            this.failUpDown.StyleManager = this.metroStyleManager1;
+            this.failUpDown.TabIndex = 58;
+            this.failUpDown.Text = "~StatusOff";
+            this.failUpDown.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.failUpDown.UseStyleColors = false;
+            this.failUpDown.UseVisualStyleBackColor = true;
+            this.failUpDown.CheckedChanged += new System.EventHandler(this.failUpDown_CheckedChanged);
+            // 
+            // MjustText4
+            // 
+            this.MjustText4.AutoSize = true;
+            this.MjustText4.CustomBackground = false;
+            this.MjustText4.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.MjustText4.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.MjustText4.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.MjustText4.Location = new System.Drawing.Point(20, 135);
+            this.MjustText4.Name = "MjustText4";
+            this.MjustText4.Size = new System.Drawing.Size(121, 20);
+            this.MjustText4.Style = MetroFramework.MetroColorStyle.Orange;
+            this.MjustText4.StyleManager = this.metroStyleManager1;
+            this.MjustText4.TabIndex = 72;
+            this.MjustText4.Text = "不及格分數定義";
+            this.MjustText4.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MjustText4.UseStyleColors = false;
+            // 
+            // ifColor
+            // 
+            this.ifColor.AutoSize = true;
+            this.ifColor.Checked = true;
+            this.ifColor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ifColor.CustomBackground = false;
+            this.ifColor.DisplayStatus = false;
+            this.ifColor.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.ifColor.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.ifColor.Location = new System.Drawing.Point(236, 102);
+            this.ifColor.Name = "ifColor";
+            this.ifColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ifColor.Size = new System.Drawing.Size(50, 19);
+            this.ifColor.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ifColor.StyleManager = this.metroStyleManager1;
+            this.ifColor.TabIndex = 59;
+            this.ifColor.Text = "~StatusOn";
+            this.ifColor.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.ifColor.UseStyleColors = true;
+            this.ifColor.UseVisualStyleBackColor = true;
+            this.ifColor.CheckedChanged += new System.EventHandler(this.ifColor_CheckedChanged);
+            // 
+            // MjustText3
+            // 
+            this.MjustText3.AutoSize = true;
+            this.MjustText3.CustomBackground = false;
+            this.MjustText3.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.MjustText3.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.MjustText3.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.MjustText3.Location = new System.Drawing.Point(20, 102);
+            this.MjustText3.Name = "MjustText3";
+            this.MjustText3.Size = new System.Drawing.Size(169, 20);
+            this.MjustText3.Style = MetroFramework.MetroColorStyle.Orange;
+            this.MjustText3.StyleManager = this.metroStyleManager1;
+            this.MjustText3.TabIndex = 71;
+            this.MjustText3.Text = "啟用分數閾值顏色標註";
+            this.MjustText3.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MjustText3.UseStyleColors = false;
+            // 
+            // highlightColorPicker
+            // 
+            this.highlightColorPicker.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.highlightColorPicker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.highlightColorPicker.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.highlightColorPicker.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.highlightColorPicker.FormattingEnabled = true;
+            this.highlightColorPicker.ItemHeight = 24;
+            this.highlightColorPicker.Location = new System.Drawing.Point(334, 204);
+            this.highlightColorPicker.Name = "highlightColorPicker";
+            this.highlightColorPicker.Size = new System.Drawing.Size(185, 30);
+            this.highlightColorPicker.Style = MetroFramework.MetroColorStyle.Orange;
+            this.highlightColorPicker.StyleManager = this.metroStyleManager1;
+            this.highlightColorPicker.TabIndex = 61;
+            this.highlightColorPicker.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // bigSmallText
+            // 
+            this.bigSmallText.AutoSize = true;
+            this.bigSmallText.CustomBackground = false;
+            this.bigSmallText.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.bigSmallText.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.bigSmallText.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.bigSmallText.Location = new System.Drawing.Point(265, 135);
+            this.bigSmallText.Name = "bigSmallText";
+            this.bigSmallText.Size = new System.Drawing.Size(41, 20);
+            this.bigSmallText.Style = MetroFramework.MetroColorStyle.Orange;
+            this.bigSmallText.StyleManager = this.metroStyleManager1;
+            this.bigSmallText.TabIndex = 70;
+            this.bigSmallText.Text = "小於";
+            this.bigSmallText.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.bigSmallText.UseStyleColors = false;
+            // 
+            // McolorButton
+            // 
+            this.McolorButton.Highlight = false;
+            this.McolorButton.Location = new System.Drawing.Point(334, 109);
+            this.McolorButton.Name = "McolorButton";
+            this.McolorButton.Size = new System.Drawing.Size(126, 23);
+            this.McolorButton.Style = MetroFramework.MetroColorStyle.Orange;
+            this.McolorButton.StyleManager = this.metroStyleManager1;
+            this.McolorButton.TabIndex = 62;
+            this.McolorButton.Text = "文字顏色變更";
+            this.McolorButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.McolorButton.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // failScore
+            // 
+            this.failScore.AutoSize = true;
+            this.failScore.CustomBackground = false;
+            this.failScore.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.failScore.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.failScore.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.failScore.Location = new System.Drawing.Point(202, 36);
+            this.failScore.Name = "failScore";
+            this.failScore.Size = new System.Drawing.Size(25, 20);
+            this.failScore.Style = MetroFramework.MetroColorStyle.Orange;
+            this.failScore.StyleManager = this.metroStyleManager1;
+            this.failScore.TabIndex = 69;
+            this.failScore.Text = "60";
+            this.failScore.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.failScore.UseStyleColors = false;
+            // 
+            // COLORing
+            // 
+            this.COLORing.AutoSize = true;
+            this.COLORing.Location = new System.Drawing.Point(331, 135);
+            this.COLORing.Name = "COLORing";
+            this.COLORing.Size = new System.Drawing.Size(54, 15);
+            this.COLORing.TabIndex = 63;
+            this.COLORing.Text = "coloring";
+            // 
+            // MjustText1
+            // 
+            this.MjustText1.AutoSize = true;
+            this.MjustText1.CustomBackground = false;
+            this.MjustText1.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.MjustText1.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.MjustText1.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.MjustText1.Location = new System.Drawing.Point(334, 178);
+            this.MjustText1.Name = "MjustText1";
+            this.MjustText1.Size = new System.Drawing.Size(89, 20);
+            this.MjustText1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.MjustText1.StyleManager = this.metroStyleManager1;
+            this.MjustText1.TabIndex = 64;
+            this.MjustText1.Text = "背景色選擇";
+            this.MjustText1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.MjustText1.UseStyleColors = false;
+            // 
+            // ifciB
+            // 
+            this.ifciB.AutoSize = true;
+            this.ifciB.CustomBackground = false;
+            this.ifciB.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.ifciB.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.ifciB.Location = new System.Drawing.Point(65, 217);
+            this.ifciB.Name = "ifciB";
+            this.ifciB.Size = new System.Drawing.Size(184, 17);
+            this.ifciB.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ifciB.StyleManager = this.metroStyleManager1;
+            this.ifciB.TabIndex = 67;
+            this.ifciB.TabStop = true;
+            this.ifciB.Text = "啟用「退步」顏色標註";
+            this.ifciB.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.ifciB.UseStyleColors = false;
+            this.ifciB.UseVisualStyleBackColor = true;
+            this.ifciB.CheckedChanged += new System.EventHandler(this.metroRadioButton3_CheckedChanged);
+            // 
+            // ifFailColorImp
+            // 
+            this.ifFailColorImp.AutoSize = true;
+            this.ifFailColorImp.CustomBackground = false;
+            this.ifFailColorImp.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.ifFailColorImp.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.ifFailColorImp.Location = new System.Drawing.Point(65, 171);
+            this.ifFailColorImp.Name = "ifFailColorImp";
+            this.ifFailColorImp.Size = new System.Drawing.Size(184, 17);
+            this.ifFailColorImp.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ifFailColorImp.StyleManager = this.metroStyleManager1;
+            this.ifFailColorImp.TabIndex = 65;
+            this.ifFailColorImp.TabStop = true;
+            this.ifFailColorImp.Text = "不啟用進退步顏色標註";
+            this.ifFailColorImp.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.ifFailColorImp.UseStyleColors = false;
+            this.ifFailColorImp.UseVisualStyleBackColor = true;
+            this.ifFailColorImp.CheckedChanged += new System.EventHandler(this.metroRadioButton1_CheckedChanged);
+            // 
+            // ifciI
+            // 
+            this.ifciI.AutoSize = true;
+            this.ifciI.CustomBackground = false;
+            this.ifciI.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.ifciI.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.ifciI.Location = new System.Drawing.Point(65, 194);
+            this.ifciI.Name = "ifciI";
+            this.ifciI.Size = new System.Drawing.Size(184, 17);
+            this.ifciI.Style = MetroFramework.MetroColorStyle.Orange;
+            this.ifciI.StyleManager = this.metroStyleManager1;
+            this.ifciI.TabIndex = 66;
+            this.ifciI.TabStop = true;
+            this.ifciI.Text = "啟用「進步」顏色標註";
+            this.ifciI.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.ifciI.UseStyleColors = false;
+            this.ifciI.UseVisualStyleBackColor = true;
+            this.ifciI.CheckedChanged += new System.EventHandler(this.metroRadioButton2_CheckedChanged);
             // 
             // tabPage3
             // 
@@ -884,7 +1231,7 @@
             this.tabPage3.HorizontalScrollbarSize = 10;
             this.tabPage3.Location = new System.Drawing.Point(4, 40);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(924, 458);
+            this.tabPage3.Size = new System.Drawing.Size(969, 477);
             this.tabPage3.Style = MetroFramework.MetroColorStyle.Orange;
             this.tabPage3.StyleManager = this.metroStyleManager1;
             this.tabPage3.TabIndex = 2;
@@ -895,17 +1242,31 @@
             this.tabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.tabPage3.VerticalScrollbarSize = 10;
             // 
-            // metroStyleManager1
+            // colorDialogText
             // 
-            this.metroStyleManager1.OwnerForm = this;
-            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.colorDialogText.ShowHelp = true;
+            // 
+            // JustificationValuesEnum
+            // 
+            this.JustificationValuesEnum.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.JustificationValuesEnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.JustificationValuesEnum.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.JustificationValuesEnum.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.JustificationValuesEnum.FormattingEnabled = true;
+            this.JustificationValuesEnum.ItemHeight = 24;
+            this.JustificationValuesEnum.Location = new System.Drawing.Point(674, 57);
+            this.JustificationValuesEnum.Name = "JustificationValuesEnum";
+            this.JustificationValuesEnum.Size = new System.Drawing.Size(231, 30);
+            this.JustificationValuesEnum.Style = MetroFramework.MetroColorStyle.Blue;
+            this.JustificationValuesEnum.StyleManager = null;
+            this.JustificationValuesEnum.TabIndex = 76;
+            this.JustificationValuesEnum.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
             // Transcript_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 582);
+            this.ClientSize = new System.Drawing.Size(1228, 593);
             this.Controls.Add(this.mainTabCtrl);
             this.Controls.Add(this.pgb);
             this.Controls.Add(this.go);
@@ -927,6 +1288,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.group_data_color.ResumeLayout(false);
+            this.group_data_color.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -1005,6 +1368,26 @@
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private MetroFramework.Controls.MetroTabPage tabPage2;
         private MetroFramework.Controls.MetroTabPage tabPage3;
+        private MetroFramework.Controls.MetroTrackBar fsBar;
+        private MetroFramework.Controls.MetroToggle ifColor;
+        private MetroFramework.Controls.MetroComboBox highlightColorPicker;
+        private MetroFramework.Controls.MetroButton McolorButton;
+        private System.Windows.Forms.ColorDialog colorDialogText;
+        private System.Windows.Forms.Label COLORing;
+        private MetroFramework.Controls.MetroLabel MjustText1;
+        private MetroFramework.Controls.MetroRadioButton ifciB;
+        private MetroFramework.Controls.MetroRadioButton ifciI;
+        private MetroFramework.Controls.MetroRadioButton ifFailColorImp;
+        private MetroFramework.Controls.MetroLabel failScore;
+        private MetroFramework.Controls.MetroLabel MjustText2;
+        private MetroFramework.Controls.MetroToggle failUpDown;
+        private MetroFramework.Controls.MetroLabel bigSmallText;
+        private MetroFramework.Controls.MetroLabel MjustText4;
+        private MetroFramework.Controls.MetroLabel MjustText3;
+        private System.Windows.Forms.GroupBox group_data_color;
+        private MetroFramework.Controls.MetroCheckBox blodAll;
+        private MetroFramework.Controls.MetroComboBox chooseFonts;
+        private MetroFramework.Controls.MetroComboBox JustificationValuesEnum;
     }
 }
 

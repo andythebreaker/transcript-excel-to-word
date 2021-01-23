@@ -296,7 +296,7 @@ namespace TranscriptV4
                         {
 
                             floaterror = floaterror.Remove(thisIsCountOfIndex + 1);
-                            floaterror=Math.Round(Decimal.Parse(floaterror), maxDecPoint_in).ToString();
+                            floaterror = Math.Round(Decimal.Parse(floaterror), maxDecPoint_in).ToString();
 
                             break;
                         }
@@ -314,19 +314,217 @@ namespace TranscriptV4
                 return floaterror;
             }
         }
+
+        private static String HexConverter(System.Drawing.Color c)
+        {
+            return c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
+        }
+
+        public DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues HighlightColorValuesOfUser()
+        {
+            switch (highlightColorPicker.SelectedIndex)
+            {
+                case 0:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.Black;
+                    break;
+                case 1:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.Blue;
+                    break;
+                case 2:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.Cyan;
+                    break;
+                case 3:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.Green;
+                    break;
+                case 4:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.Magenta;
+                    break;
+                case 5:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.Red;
+                    break;
+                case 6:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.Yellow;
+                    break;
+                case 7:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.White;
+                    break;
+                case 8:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.DarkBlue;
+                    break;
+                case 9:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.DarkCyan;
+                    break;
+                case 10:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.DarkGreen;
+                    break;
+                case 11:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.DarkMagenta;
+                    break;
+                case 12:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.DarkRed;
+                    break;
+                case 13:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.DarkYellow;
+                    break;
+                case 14:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.DarkGray;
+                    break;
+                case 15:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.LightGray;
+                    break;
+                case 16:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.None;
+                    break;
+                default:
+                    return DocumentFormat.OpenXml.Wordprocessing.HighlightColorValues.None;
+                    break;
+            }
+
+        }
         public void change_cell_text(TableCell cin, string stuff_to_change)
         {
             cin.RemoveAllChildren();
 
             Paragraph new_p = new Paragraph();
-            DocumentFormat.OpenXml.Wordprocessing.Run new_r = new DocumentFormat.OpenXml.Wordprocessing.Run();
-            DocumentFormat.OpenXml.Wordprocessing.Text new_t = new DocumentFormat.OpenXml.Wordprocessing.Text();
-            new_t.Text = stuff_to_change;
-            if (printAllData.Checked) { logit(stuff_to_change); }
-            new_r.AppendChild(new_t);
-            new_p.AppendChild(new_r);
+            //DocumentFormat.OpenXml.Wordprocessing.Run new_r = new DocumentFormat.OpenXml.Wordprocessing.Run();
+            //DocumentFormat.OpenXml.Wordprocessing.Text new_t = new DocumentFormat.OpenXml.Wordprocessing.Text();
+            //new_t.Text = stuff_to_change;
+            //new_r.AppendChild(new_t);
 
+            ParagraphProperties UserHeadingParagPro = new DocumentFormat.OpenXml.Wordprocessing.ParagraphProperties();
+            DocumentFormat.OpenXml.Wordprocessing.Run formattedRun = new DocumentFormat.OpenXml.Wordprocessing.Run();
+            DocumentFormat.OpenXml.Wordprocessing.RunProperties runPro = new DocumentFormat.OpenXml.Wordprocessing.RunProperties();
+            RunFonts runFont = new RunFonts() { Ascii = chooseFonts.SelectedItem.ToString(), HighAnsi = chooseFonts.SelectedItem.ToString() };
+            DocumentFormat.OpenXml.Wordprocessing.Bold bold = new DocumentFormat.OpenXml.Wordprocessing.Bold();
+            DocumentFormat.OpenXml.Wordprocessing.Text text = new DocumentFormat.OpenXml.Wordprocessing.Text(stuff_to_change);
+            DocumentFormat.OpenXml.Wordprocessing.Color color;
+            DocumentFormat.OpenXml.Wordprocessing.Highlight highlight;
+            bool color_need_change = false;
+
+            if (ifColor.Checked)
+            {
+                if (stuff_to_change.Contains("進"))
+                {
+                    if (ifciI.Checked)
+                    {
+                        color_need_change = true;
+                    }
+                }
+                else if (stuff_to_change.Contains("退"))
+                {
+                    if (ifciB.Checked)
+                    {
+                        color_need_change = true;
+                    }
+                }
+                else if (decimal.TryParse(stuff_to_change, out decimal numValue))
+                {
+                    decimal tmp_numValue= numValue;
+                    decimal tmpSix = 60;
+                    if (decimal.TryParse(failScore.Text,out decimal six))
+                    {
+                        tmpSix = six;
+                    }
+                    if (failUpDown.Checked)//>
+                    {
+                        if (tmp_numValue> tmpSix)
+                        {
+                            color_need_change = true;
+                        }
+                    }
+                    else//小於
+                    {
+                        if (tmp_numValue< tmpSix)
+                        {
+                            color_need_change = true;
+                        }
+                    }
+
+                }
+                else
+                {
+                    //Int32.TryParse could not parse '{inputString}' to an int.");
+
+                }
+
+            }
+            else
+            {
+                color_need_change = false;
+            }
+
+            if (color_need_change)
+            {
+                color = new DocumentFormat.OpenXml.Wordprocessing.Color() { Val = HexConverter(COLORing.BackColor) };
+                highlight = new DocumentFormat.OpenXml.Wordprocessing.Highlight() { Val = HighlightColorValuesOfUser() };
+            }
+            else
+            {
+                color = new DocumentFormat.OpenXml.Wordprocessing.Color() { Val = "000000" };
+                highlight = new DocumentFormat.OpenXml.Wordprocessing.Highlight() { Val = HighlightColorValues.None };
+
+            }
+
+            Justification CenterHeading = new Justification { Val = user_justification() };
+            UserHeadingParagPro.Append(CenterHeading);
+
+            runPro.Append(runFont);
+            if (blodAll.Checked) { runPro.Append(bold); } else { }
+            runPro.Append(color);
+            runPro.Append(highlight);
+            runPro.Append(text);
+            formattedRun.Append(runPro);
+
+            new_p.Append(UserHeadingParagPro);
+            new_p.AppendChild(formattedRun);
             cin.AppendChild(new_p);
+
+            if (printAllData.Checked) { logit(stuff_to_change); }
+        }
+        public JustificationValues user_justification()
+        {
+            switch (JustificationValuesEnum.SelectedIndex)
+            {
+                case 0:
+                    return JustificationValues.Left;
+                    break;
+                case 1:
+                    return JustificationValues.Start;
+                    break;
+                case 2:
+                    return JustificationValues.Center;
+                    break;
+                case 3:
+                    return JustificationValues.Right;
+                    break;
+                case 4:
+                    return JustificationValues.End;
+                    break;
+                case 5:
+                    return JustificationValues.Both;
+                    break;
+                case 6:
+                    return JustificationValues.MediumKashida;
+                    break;
+                case 7:
+                    return JustificationValues.Distribute;
+                    break;
+                case 8:
+                    return JustificationValues.NumTab;
+                    break;
+                case 9:
+                    return JustificationValues.HighKashida;
+                    break;
+                case 10:
+                    return JustificationValues.LowKashida;
+                    break;
+                case 11:
+                    return JustificationValues.ThaiDistribute;
+                    break;
+                default:
+                    return JustificationValues.Center;
+                    break;
+            }
         }
         public int row_count_er(string file_in, int sd_page)
         {

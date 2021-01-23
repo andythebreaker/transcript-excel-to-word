@@ -1,11 +1,8 @@
-﻿/*TODO:
- * 1.成績如果是浮點數，輸出檔案會炸，計算成績差會消失(202101修好，待QA->OK02)
- * 2.成績不及格紅色
- * 3.成績 置中
+﻿/*TODO
  * 4.LOGO無法顯示(這是bug要修正)
  * 5.INFO要隱藏
- * 6.UI優化
  * 7.ischool下載檔案支援
+ * 8.排名不要上紅
  * */
 
  /* 快捷操作
@@ -33,9 +30,57 @@ namespace TranscriptV4
 {
     public partial class Transcript_main : Form
     {
-        public Transcript_main()
+
+        List<string> system_fonts = new List<string>();
+
+
+    public Transcript_main()
         {
             InitializeComponent();
+            highlightColorPicker.Items.Add("Black");//0
+            highlightColorPicker.Items.Add("Blue");//1
+            highlightColorPicker.Items.Add("Cyan");//2
+            highlightColorPicker.Items.Add("Green");//3
+            highlightColorPicker.Items.Add("Magenta");//4
+            highlightColorPicker.Items.Add("Red");//5
+            highlightColorPicker.Items.Add("Yellow");//5
+            //寫錯了啦QQ
+            highlightColorPicker.Items.Add("White");//6
+            highlightColorPicker.Items.Add("DarkBlue");//7
+            highlightColorPicker.Items.Add("DarkCyan");//8
+            highlightColorPicker.Items.Add("DarkGreen");//9
+            highlightColorPicker.Items.Add("DarkMagenta");//10
+            highlightColorPicker.Items.Add("DarkRed");//11
+            highlightColorPicker.Items.Add("DarkYellow");//12
+            highlightColorPicker.Items.Add("DarkGray");//13
+            highlightColorPicker.Items.Add("LightGray");//14
+            highlightColorPicker.Items.Add("None");//15
+            highlightColorPicker.SelectedIndex = 16;
+            COLORing.BackColor = System.Drawing.Color.DarkRed;
+            COLORing.ForeColor = System.Drawing.Color.DarkRed;
+            COLORing.Text = System.Drawing.Color.DarkRed.ToString();
+            ifFailColorImp.Checked = true;
+            int tmp_loop_count = 0;
+            int tmp_font_index = 0;
+            foreach (System.Drawing.FontFamily font in System.Drawing.FontFamily.Families)
+            {
+                system_fonts.Add(font.Name);
+                if (font.Name=="Arial")
+                {
+                    tmp_font_index =tmp_loop_count;
+                }
+                tmp_loop_count++;
+            }
+            chooseFonts.DataSource = system_fonts;
+            chooseFonts.SelectedIndex = tmp_font_index;
+            JustificationValuesEnum.Items.Add("Left");
+            JustificationValuesEnum.Items.Add("Start"); JustificationValuesEnum.Items.Add("Center");
+            JustificationValuesEnum.Items.Add("Right"); JustificationValuesEnum.Items.Add("End");
+            JustificationValuesEnum.Items.Add("Both"); JustificationValuesEnum.Items.Add("MediumKashida");
+            JustificationValuesEnum.Items.Add("Distribute"); JustificationValuesEnum.Items.Add("NumTab");
+            JustificationValuesEnum.Items.Add("HighKashida"); JustificationValuesEnum.Items.Add("LowKashida");
+            JustificationValuesEnum.Items.Add("ThaiDistribute");
+            JustificationValuesEnum.SelectedIndex = 2;
         }
 
         List<string> stuff_to_remove = new List<string>();
@@ -823,6 +868,61 @@ namespace TranscriptV4
         {
             //nomove
         }
-        
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            if (colorDialogText.ShowDialog() == DialogResult.OK)
+            {
+               COLORing.BackColor = colorDialogText.Color;
+                COLORing.ForeColor = colorDialogText.Color;
+                COLORing.Text = colorDialogText.Color.ToString();
+            }
+        }
+
+        private void metroRadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ifFailColorImp.Checked)
+            {
+                ifciB.Checked = false;
+                ifciI.Checked = false;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void metroRadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ifciI.Checked)
+            {
+                ifFailColorImp.Checked = false;
+                ifciB.Checked = false;
+            }
+        }
+
+        private void metroRadioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ifciB.Checked)
+            {
+                ifFailColorImp.Checked = false;
+                ifciI.Checked = false;
+            }
+        }
+
+        private void fsBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            failScore.Text = fsBar.Value.ToString();
+        }
+
+        private void failUpDown_CheckedChanged(object sender, EventArgs e)
+        {
+            bigSmallText.Text = (failUpDown.Checked) ? "大於" : "小於";
+        }
+
+        private void ifColor_CheckedChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(ifColor.Text) ;
+        }
     }
 }
