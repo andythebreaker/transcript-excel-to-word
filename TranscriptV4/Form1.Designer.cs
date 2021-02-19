@@ -98,8 +98,13 @@
             this.tabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager();
             this.tabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.chooseFonts = new MetroFramework.Controls.MetroComboBox();
-            this.blodAll = new MetroFramework.Controls.MetroCheckBox();
+            this.tab_of_color = new MetroFramework.Controls.MetroTabPage();
+            this.red_free_group = new System.Windows.Forms.GroupBox();
+            this.red_free = new System.Windows.Forms.ListBox();
+            this.red_free_remove = new System.Windows.Forms.Button();
+            this.red_free_input = new System.Windows.Forms.TextBox();
+            this.red_free_add = new System.Windows.Forms.Button();
+            this.rep_yn = new MetroFramework.Controls.MetroLabel();
             this.group_data_color = new System.Windows.Forms.GroupBox();
             this.MjustText2 = new MetroFramework.Controls.MetroLabel();
             this.fsBar = new MetroFramework.Controls.MetroTrackBar();
@@ -116,9 +121,13 @@
             this.ifciB = new MetroFramework.Controls.MetroRadioButton();
             this.ifFailColorImp = new MetroFramework.Controls.MetroRadioButton();
             this.ifciI = new MetroFramework.Controls.MetroRadioButton();
+            this.blodAll = new MetroFramework.Controls.MetroCheckBox();
+            this.remove_blank_page = new MetroFramework.Controls.MetroButton();
+            this.JustificationValuesEnum = new MetroFramework.Controls.MetroComboBox();
+            this.chooseFonts = new MetroFramework.Controls.MetroComboBox();
             this.tabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.colorDialogText = new System.Windows.Forms.ColorDialog();
-            this.JustificationValuesEnum = new MetroFramework.Controls.MetroComboBox();
+            this.iicctdc = new MetroFramework.Controls.MetroCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.off1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.off2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.off3)).BeginInit();
@@ -129,6 +138,8 @@
             this.mainTabCtrl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tab_of_color.SuspendLayout();
+            this.red_free_group.SuspendLayout();
             this.group_data_color.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
@@ -310,7 +321,7 @@
             // 
             // go
             // 
-            this.go.Location = new System.Drawing.Point(1016, 514);
+            this.go.Location = new System.Drawing.Point(1077, 514);
             this.go.Margin = new System.Windows.Forms.Padding(4);
             this.go.Name = "go";
             this.go.Size = new System.Drawing.Size(100, 66);
@@ -545,7 +556,7 @@
             // 
             // impT
             // 
-            this.impT.Location = new System.Drawing.Point(182, 334);
+            this.impT.Location = new System.Drawing.Point(211, 352);
             this.impT.Margin = new System.Windows.Forms.Padding(4);
             this.impT.Name = "impT";
             this.impT.Size = new System.Drawing.Size(132, 25);
@@ -554,7 +565,7 @@
             // 
             // bmpT
             // 
-            this.bmpT.Location = new System.Drawing.Point(182, 372);
+            this.bmpT.Location = new System.Drawing.Point(211, 390);
             this.bmpT.Margin = new System.Windows.Forms.Padding(4);
             this.bmpT.Name = "bmpT";
             this.bmpT.Size = new System.Drawing.Size(132, 25);
@@ -563,7 +574,7 @@
             // 
             // nmpT
             // 
-            this.nmpT.Location = new System.Drawing.Point(182, 408);
+            this.nmpT.Location = new System.Drawing.Point(211, 426);
             this.nmpT.Margin = new System.Windows.Forms.Padding(4);
             this.nmpT.Name = "nmpT";
             this.nmpT.Size = new System.Drawing.Size(132, 25);
@@ -643,7 +654,7 @@
             // nomove4
             // 
             this.nomove4.AutoSize = true;
-            this.nomove4.Location = new System.Drawing.Point(107, 313);
+            this.nomove4.Location = new System.Drawing.Point(136, 331);
             this.nomove4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nomove4.Name = "nomove4";
             this.nomove4.Size = new System.Drawing.Size(209, 15);
@@ -808,14 +819,15 @@
             // 
             this.mainTabCtrl.Controls.Add(this.tabPage1);
             this.mainTabCtrl.Controls.Add(this.tabPage2);
+            this.mainTabCtrl.Controls.Add(this.tab_of_color);
             this.mainTabCtrl.Controls.Add(this.tabPage3);
             this.mainTabCtrl.CustomBackground = false;
             this.mainTabCtrl.FontSize = MetroFramework.MetroTabControlSize.Medium;
             this.mainTabCtrl.FontWeight = MetroFramework.MetroTabControlWeight.Light;
             this.mainTabCtrl.Location = new System.Drawing.Point(12, 12);
             this.mainTabCtrl.Name = "mainTabCtrl";
-            this.mainTabCtrl.SelectedIndex = 1;
-            this.mainTabCtrl.Size = new System.Drawing.Size(977, 521);
+            this.mainTabCtrl.SelectedIndex = 2;
+            this.mainTabCtrl.Size = new System.Drawing.Size(1025, 521);
             this.mainTabCtrl.Style = MetroFramework.MetroColorStyle.Orange;
             this.mainTabCtrl.StyleManager = this.metroStyleManager1;
             this.mainTabCtrl.TabIndex = 62;
@@ -841,7 +853,7 @@
             this.tabPage1.HorizontalScrollbarSize = 10;
             this.tabPage1.Location = new System.Drawing.Point(4, 40);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(969, 477);
+            this.tabPage1.Size = new System.Drawing.Size(1017, 477);
             this.tabPage1.Style = MetroFramework.MetroColorStyle.Orange;
             this.tabPage1.StyleManager = this.metroStyleManager1;
             this.tabPage1.TabIndex = 0;
@@ -860,10 +872,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.JustificationValuesEnum);
-            this.tabPage2.Controls.Add(this.chooseFonts);
-            this.tabPage2.Controls.Add(this.blodAll);
-            this.tabPage2.Controls.Add(this.group_data_color);
             this.tabPage2.Controls.Add(this.virb_numb);
             this.tabPage2.Controls.Add(this.virb_name);
             this.tabPage2.Controls.Add(this.fan);
@@ -889,49 +897,110 @@
             this.tabPage2.HorizontalScrollbarSize = 10;
             this.tabPage2.Location = new System.Drawing.Point(4, 40);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(969, 477);
+            this.tabPage2.Size = new System.Drawing.Size(1017, 477);
             this.tabPage2.Style = MetroFramework.MetroColorStyle.Orange;
             this.tabPage2.StyleManager = this.metroStyleManager1;
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "數據與文字設定";
+            this.tabPage2.Text = "數據設定";
             this.tabPage2.Theme = MetroFramework.MetroThemeStyle.Light;
             this.tabPage2.VerticalScrollbar = false;
             this.tabPage2.VerticalScrollbarBarColor = true;
             this.tabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.tabPage2.VerticalScrollbarSize = 10;
             // 
-            // chooseFonts
+            // tab_of_color
             // 
-            this.chooseFonts.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.chooseFonts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.chooseFonts.FontSize = MetroFramework.MetroLinkSize.Medium;
-            this.chooseFonts.FontWeight = MetroFramework.MetroLinkWeight.Regular;
-            this.chooseFonts.FormattingEnabled = true;
-            this.chooseFonts.ItemHeight = 24;
-            this.chooseFonts.Location = new System.Drawing.Point(598, 111);
-            this.chooseFonts.Name = "chooseFonts";
-            this.chooseFonts.Size = new System.Drawing.Size(307, 30);
-            this.chooseFonts.Style = MetroFramework.MetroColorStyle.Orange;
-            this.chooseFonts.StyleManager = this.metroStyleManager1;
-            this.chooseFonts.TabIndex = 75;
-            this.chooseFonts.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tab_of_color.Controls.Add(this.red_free_group);
+            this.tab_of_color.Controls.Add(this.rep_yn);
+            this.tab_of_color.Controls.Add(this.group_data_color);
+            this.tab_of_color.Controls.Add(this.blodAll);
+            this.tab_of_color.Controls.Add(this.remove_blank_page);
+            this.tab_of_color.Controls.Add(this.JustificationValuesEnum);
+            this.tab_of_color.Controls.Add(this.chooseFonts);
+            this.tab_of_color.CustomBackground = false;
+            this.tab_of_color.HorizontalScrollbar = false;
+            this.tab_of_color.HorizontalScrollbarBarColor = true;
+            this.tab_of_color.HorizontalScrollbarHighlightOnWheel = false;
+            this.tab_of_color.HorizontalScrollbarSize = 10;
+            this.tab_of_color.Location = new System.Drawing.Point(4, 40);
+            this.tab_of_color.Name = "tab_of_color";
+            this.tab_of_color.Size = new System.Drawing.Size(1017, 477);
+            this.tab_of_color.Style = MetroFramework.MetroColorStyle.Orange;
+            this.tab_of_color.StyleManager = this.metroStyleManager1;
+            this.tab_of_color.TabIndex = 3;
+            this.tab_of_color.Text = "文字格式設定";
+            this.tab_of_color.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tab_of_color.VerticalScrollbar = false;
+            this.tab_of_color.VerticalScrollbarBarColor = true;
+            this.tab_of_color.VerticalScrollbarHighlightOnWheel = false;
+            this.tab_of_color.VerticalScrollbarSize = 10;
             // 
-            // blodAll
+            // red_free_group
             // 
-            this.blodAll.AutoSize = true;
-            this.blodAll.CustomBackground = false;
-            this.blodAll.FontSize = MetroFramework.MetroLinkSize.Small;
-            this.blodAll.FontWeight = MetroFramework.MetroLinkWeight.Regular;
-            this.blodAll.Location = new System.Drawing.Point(598, 64);
-            this.blodAll.Name = "blodAll";
-            this.blodAll.Size = new System.Drawing.Size(56, 17);
-            this.blodAll.Style = MetroFramework.MetroColorStyle.Orange;
-            this.blodAll.StyleManager = this.metroStyleManager1;
-            this.blodAll.TabIndex = 73;
-            this.blodAll.Text = "粗體";
-            this.blodAll.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.blodAll.UseStyleColors = false;
-            this.blodAll.UseVisualStyleBackColor = true;
+            this.red_free_group.Controls.Add(this.iicctdc);
+            this.red_free_group.Controls.Add(this.red_free);
+            this.red_free_group.Controls.Add(this.red_free_remove);
+            this.red_free_group.Controls.Add(this.red_free_input);
+            this.red_free_group.Controls.Add(this.red_free_add);
+            this.red_free_group.Location = new System.Drawing.Point(19, 25);
+            this.red_free_group.Name = "red_free_group";
+            this.red_free_group.Size = new System.Drawing.Size(329, 416);
+            this.red_free_group.TabIndex = 84;
+            this.red_free_group.TabStop = false;
+            this.red_free_group.Text = "上色排除";
+            // 
+            // red_free
+            // 
+            this.red_free.FormattingEnabled = true;
+            this.red_free.ItemHeight = 15;
+            this.red_free.Location = new System.Drawing.Point(22, 40);
+            this.red_free.Name = "red_free";
+            this.red_free.Size = new System.Drawing.Size(213, 154);
+            this.red_free.TabIndex = 79;
+            // 
+            // red_free_remove
+            // 
+            this.red_free_remove.Location = new System.Drawing.Point(170, 296);
+            this.red_free_remove.Name = "red_free_remove";
+            this.red_free_remove.Size = new System.Drawing.Size(75, 36);
+            this.red_free_remove.TabIndex = 82;
+            this.red_free_remove.Text = "移除";
+            this.red_free_remove.UseVisualStyleBackColor = true;
+            this.red_free_remove.Click += new System.EventHandler(this.red_free_remove_Click);
+            // 
+            // red_free_input
+            // 
+            this.red_free_input.Location = new System.Drawing.Point(22, 230);
+            this.red_free_input.Name = "red_free_input";
+            this.red_free_input.Size = new System.Drawing.Size(213, 25);
+            this.red_free_input.TabIndex = 80;
+            // 
+            // red_free_add
+            // 
+            this.red_free_add.Location = new System.Drawing.Point(22, 297);
+            this.red_free_add.Name = "red_free_add";
+            this.red_free_add.Size = new System.Drawing.Size(75, 35);
+            this.red_free_add.TabIndex = 81;
+            this.red_free_add.Text = "加入";
+            this.red_free_add.UseVisualStyleBackColor = true;
+            this.red_free_add.Click += new System.EventHandler(this.red_free_add_Click);
+            // 
+            // rep_yn
+            // 
+            this.rep_yn.AutoSize = true;
+            this.rep_yn.CustomBackground = false;
+            this.rep_yn.FontSize = MetroFramework.MetroLabelSize.Medium;
+            this.rep_yn.FontWeight = MetroFramework.MetroLabelWeight.Light;
+            this.rep_yn.LabelMode = MetroFramework.Controls.MetroLabelMode.Default;
+            this.rep_yn.Location = new System.Drawing.Point(660, 148);
+            this.rep_yn.Name = "rep_yn";
+            this.rep_yn.Size = new System.Drawing.Size(25, 20);
+            this.rep_yn.Style = MetroFramework.MetroColorStyle.Orange;
+            this.rep_yn.StyleManager = this.metroStyleManager1;
+            this.rep_yn.TabIndex = 78;
+            this.rep_yn.Text = "no";
+            this.rep_yn.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.rep_yn.UseStyleColors = false;
             // 
             // group_data_color
             // 
@@ -951,7 +1020,7 @@
             this.group_data_color.Controls.Add(this.ifciB);
             this.group_data_color.Controls.Add(this.ifFailColorImp);
             this.group_data_color.Controls.Add(this.ifciI);
-            this.group_data_color.Location = new System.Drawing.Point(362, 206);
+            this.group_data_color.Location = new System.Drawing.Point(379, 192);
             this.group_data_color.Name = "group_data_color";
             this.group_data_color.Size = new System.Drawing.Size(585, 249);
             this.group_data_color.TabIndex = 73;
@@ -1216,6 +1285,68 @@
             this.ifciI.UseVisualStyleBackColor = true;
             this.ifciI.CheckedChanged += new System.EventHandler(this.metroRadioButton2_CheckedChanged);
             // 
+            // blodAll
+            // 
+            this.blodAll.AutoSize = true;
+            this.blodAll.CustomBackground = false;
+            this.blodAll.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.blodAll.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.blodAll.Location = new System.Drawing.Point(378, 32);
+            this.blodAll.Name = "blodAll";
+            this.blodAll.Size = new System.Drawing.Size(56, 17);
+            this.blodAll.Style = MetroFramework.MetroColorStyle.Orange;
+            this.blodAll.StyleManager = this.metroStyleManager1;
+            this.blodAll.TabIndex = 73;
+            this.blodAll.Text = "粗體";
+            this.blodAll.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.blodAll.UseStyleColors = false;
+            this.blodAll.UseVisualStyleBackColor = true;
+            // 
+            // remove_blank_page
+            // 
+            this.remove_blank_page.Highlight = false;
+            this.remove_blank_page.Location = new System.Drawing.Point(378, 145);
+            this.remove_blank_page.Name = "remove_blank_page";
+            this.remove_blank_page.Size = new System.Drawing.Size(243, 23);
+            this.remove_blank_page.Style = MetroFramework.MetroColorStyle.Orange;
+            this.remove_blank_page.StyleManager = this.metroStyleManager1;
+            this.remove_blank_page.TabIndex = 77;
+            this.remove_blank_page.Text = "移除文件末空白頁";
+            this.remove_blank_page.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.remove_blank_page.Click += new System.EventHandler(this.remove_blank_page_Click);
+            // 
+            // JustificationValuesEnum
+            // 
+            this.JustificationValuesEnum.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.JustificationValuesEnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.JustificationValuesEnum.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.JustificationValuesEnum.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.JustificationValuesEnum.FormattingEnabled = true;
+            this.JustificationValuesEnum.ItemHeight = 24;
+            this.JustificationValuesEnum.Location = new System.Drawing.Point(454, 25);
+            this.JustificationValuesEnum.Name = "JustificationValuesEnum";
+            this.JustificationValuesEnum.Size = new System.Drawing.Size(231, 30);
+            this.JustificationValuesEnum.Style = MetroFramework.MetroColorStyle.Orange;
+            this.JustificationValuesEnum.StyleManager = this.metroStyleManager1;
+            this.JustificationValuesEnum.TabIndex = 76;
+            this.JustificationValuesEnum.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // chooseFonts
+            // 
+            this.chooseFonts.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.chooseFonts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.chooseFonts.FontSize = MetroFramework.MetroLinkSize.Medium;
+            this.chooseFonts.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.chooseFonts.FormattingEnabled = true;
+            this.chooseFonts.ItemHeight = 24;
+            this.chooseFonts.Location = new System.Drawing.Point(378, 79);
+            this.chooseFonts.Name = "chooseFonts";
+            this.chooseFonts.Size = new System.Drawing.Size(307, 30);
+            this.chooseFonts.Style = MetroFramework.MetroColorStyle.Orange;
+            this.chooseFonts.StyleManager = this.metroStyleManager1;
+            this.chooseFonts.TabIndex = 75;
+            this.chooseFonts.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.textOnly2);
@@ -1231,7 +1362,7 @@
             this.tabPage3.HorizontalScrollbarSize = 10;
             this.tabPage3.Location = new System.Drawing.Point(4, 40);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(969, 477);
+            this.tabPage3.Size = new System.Drawing.Size(1017, 477);
             this.tabPage3.Style = MetroFramework.MetroColorStyle.Orange;
             this.tabPage3.StyleManager = this.metroStyleManager1;
             this.tabPage3.TabIndex = 2;
@@ -1246,21 +1377,24 @@
             // 
             this.colorDialogText.ShowHelp = true;
             // 
-            // JustificationValuesEnum
+            // iicctdc
             // 
-            this.JustificationValuesEnum.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.JustificationValuesEnum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.JustificationValuesEnum.FontSize = MetroFramework.MetroLinkSize.Medium;
-            this.JustificationValuesEnum.FontWeight = MetroFramework.MetroLinkWeight.Regular;
-            this.JustificationValuesEnum.FormattingEnabled = true;
-            this.JustificationValuesEnum.ItemHeight = 24;
-            this.JustificationValuesEnum.Location = new System.Drawing.Point(674, 57);
-            this.JustificationValuesEnum.Name = "JustificationValuesEnum";
-            this.JustificationValuesEnum.Size = new System.Drawing.Size(231, 30);
-            this.JustificationValuesEnum.Style = MetroFramework.MetroColorStyle.Blue;
-            this.JustificationValuesEnum.StyleManager = null;
-            this.JustificationValuesEnum.TabIndex = 76;
-            this.JustificationValuesEnum.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.iicctdc.AutoSize = true;
+            this.iicctdc.Checked = true;
+            this.iicctdc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.iicctdc.CustomBackground = false;
+            this.iicctdc.FontSize = MetroFramework.MetroLinkSize.Small;
+            this.iicctdc.FontWeight = MetroFramework.MetroLinkWeight.Regular;
+            this.iicctdc.Location = new System.Drawing.Point(6, 371);
+            this.iicctdc.Name = "iicctdc";
+            this.iicctdc.Size = new System.Drawing.Size(280, 17);
+            this.iicctdc.Style = MetroFramework.MetroColorStyle.Blue;
+            this.iicctdc.StyleManager = null;
+            this.iicctdc.TabIndex = 83;
+            this.iicctdc.Text = "若進退步顏色標註被勾選則豁免排除";
+            this.iicctdc.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.iicctdc.UseStyleColors = false;
+            this.iicctdc.UseVisualStyleBackColor = true;
             // 
             // Transcript_main
             // 
@@ -1288,6 +1422,10 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tab_of_color.ResumeLayout(false);
+            this.tab_of_color.PerformLayout();
+            this.red_free_group.ResumeLayout(false);
+            this.red_free_group.PerformLayout();
             this.group_data_color.ResumeLayout(false);
             this.group_data_color.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -1388,6 +1526,15 @@
         private MetroFramework.Controls.MetroCheckBox blodAll;
         private MetroFramework.Controls.MetroComboBox chooseFonts;
         private MetroFramework.Controls.MetroComboBox JustificationValuesEnum;
+        private MetroFramework.Controls.MetroLabel rep_yn;
+        private MetroFramework.Controls.MetroButton remove_blank_page;
+        private MetroFramework.Controls.MetroTabPage tab_of_color;
+        private System.Windows.Forms.GroupBox red_free_group;
+        private System.Windows.Forms.ListBox red_free;
+        private System.Windows.Forms.Button red_free_remove;
+        private System.Windows.Forms.TextBox red_free_input;
+        private System.Windows.Forms.Button red_free_add;
+        private MetroFramework.Controls.MetroCheckBox iicctdc;
     }
 }
 

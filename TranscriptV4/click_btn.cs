@@ -381,7 +381,7 @@ namespace TranscriptV4
             }
 
         }
-        public void change_cell_text(TableCell cin, string stuff_to_change)
+        public void change_cell_text(TableCell cin, string stuff_to_change,bool able_add_red)
         {
             cin.RemoveAllChildren();
 
@@ -453,7 +453,7 @@ namespace TranscriptV4
                 color_need_change = false;
             }
 
-            if (color_need_change)
+            if (color_need_change&&able_add_red)
             {
                 color = new DocumentFormat.OpenXml.Wordprocessing.Color() { Val = HexConverter(COLORing.BackColor) };
                 highlight = new DocumentFormat.OpenXml.Wordprocessing.Highlight() { Val = HighlightColorValuesOfUser() };
